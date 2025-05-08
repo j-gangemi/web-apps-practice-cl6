@@ -1,0 +1,2 @@
+class BitcounController < ApplicationController
+end

@@ -1,0 +1,17 @@
+<%require "net/http"%>
+<%require "json"%>
+<%url = "https://blockchain.info/ticker"%>
+<%uri = URI(url)%>
+<%response = Net::HTTP.get(uri)%>
+<%bitcoin_data = JSON.parse(response)%>
+<% bitcoin = 0.25 %>
+
+<%usd_rate = bitcoin_data["USD"]["last"]%>
+<%usd_value = usd_rate*bitcoin%>
+
+<p>Hello!</p>
+<p>You have <%=bitcoin%> bitcoin.</p>
+<p>1 bitcoin is valued at $<%= usd_rate %> USD</p>
+<p>Your bitcoin is worth $<%= usd_value %> USD</p>
+
+
